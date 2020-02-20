@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Mabel Chat</title>
+</head>
+<body>
+    <!--Container y titulo-->
+<div class="container my-4">
+    <h1 class="my-4 text-center">Chat</h1>
+
+    <!--Botones para el chatroom-->
+    <div class="chat-rooms mb-3 text-center">
+        <div class="my-2">Escoge una sala de chat</div>
+        <button class="btn" id="general">#general</button>
+        <button class="btn" id="gaming">#juegos</button>
+        <button class="btn" id="music">#musica</button>
+        <button class="btn" id="ninjas">#mabel</button>
+      </div>
+
+    <!--Lista de chats/ventanas-->
+    <div class="chat-window">
+      <ul class="chat-list list-group"></ul>
+    </div>
+
+    <!--Nuevo formulario de chat cuando se envia un nuevo mensaje-->
+    <form class="new-chat my-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Tu mensaje</div>
+        </div>
+        <input type="text" id="message" class="form-control" required>
+        <div class="input-group-append">
+          <input type="submit" class="btn" value="Enviar">
+        </div>
+      </div>
+    </form>
+
+    <!--Actualizar el nombre en el formulario-->
+    <form class="new-name my-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Actualizar nombre</div>
+        </div>
+        <input type="text" id="name" class="form-control" required>
+        <div class="input-group-append">
+          <input type="submit" class="btn" value="Actualizar">
+        </div>
+      </div>
+      <div class="update-mssg"></div>
+    </form>
+</div>
+
+<!--Nos servira para trabajar con las fechas-->
+<script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+
+<!--Mi conexion a Firebase-->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCl5EmoAFGCzqMufY58fsV_t66ySlLDHmI",
+    authDomain: "udemy-modern-javascript-ec894.firebaseapp.com",
+    databaseURL: "https://udemy-modern-javascript-ec894.firebaseio.com",
+    projectId: "udemy-modern-javascript-ec894",
+    storageBucket: "udemy-modern-javascript-ec894.appspot.com",
+    messagingSenderId: "558744947221",
+    appId: "1:558744947221:web:3febbe600a5411f273dc1c",
+    measurementId: "G-1MSDRGKPP6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  //Inicializar la db
+  const db = firebase.firestore();
+  firebase.analytics();
+</script>
+
+
+    <script src="scripts/chat.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
